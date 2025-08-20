@@ -1,0 +1,932 @@
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* font */
+:root{
+    --default-font: Molengo, system-ui, -apple-system, "Sogoe UI", Arial;
+    --header-font: Ballet;
+    --nav-font: Libre Caslon Display;
+    --hero-welcome-font: Libre Caslon Display;
+    --hero-content-font: Libre Caslon Display;
+    --artist-font: Libre Caslon Display;
+    --composer-font: Molengo;
+    --music-name-font: Molengo;
+    --blog-title-font: Molengo;
+    --blog-date-font: Molengo;
+    --blog-content-font: Molengo;
+    --about-content-font: Molengo;
+    --reminder-font: Libre;
+    --my-wisdom-font: Imperial Script;
+    --footer-logo: Ballet;
+    --contact-me: Libre Caslon Display;
+}
+/* color */
+:root{
+    --nav-link-background: #ffffff;
+    --nav-mobile-background-color: #ffffff;
+    --default: #000000;
+    --article-title: #000000;
+    --artist: #000000;
+    --tab-header: #000000;
+    --nav: #000000;
+    --logo: #000000;
+    --default-hover: #917400;
+    --nav-hover: #917400;
+    --nav-tab-hover: #917400;
+    --article-title-hover: #917400;
+    --header: #dfdfdf;
+    --hero-welcome: #dfdfdf;
+    --hero-content: #dfdfdf;
+    --hero-welcome-phone: #fcfcfc;
+    --hero-content-phone: #fcfcfc;
+    /* --footer: #dfdfdf; */
+    --footer: #2d2d2d;
+    --reminder: #917400;
+    --footer-logo-color: #dfdfdf;
+    --footer-copyright: #dfdfdf;
+    --contact-focus-color: #a48400;
+    --submit-background-color: #ffffff;
+    --submit-hover-color: #c4c4c4;
+}
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* font style */
+.monsieur-la-doulaise-regular {
+    font-family: "Monsieur La Doulaise", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ballet-logo {
+    font-family: "Ballet", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.libre-caslon-display-regular {
+    font-family: "Libre Caslon Display", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.molengo-regular {
+  font-family: "Molengo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.imperial-script-regular {
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+body {
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+}
+    to {
+      opacity: 1;
+    }
+}
+a {
+    color: var(--default);
+    text-decoration: none;
+    transition: 0.5s;
+}
+a:hover {
+    color: var(--default-hover);
+    text-decoration: none;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--default);
+    font-family: var(--default-font);
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* header */
+.header {
+    margin: 0;
+    padding: 12px 0;
+    background-color: var(--header);
+    transition: all 0.5s;
+    z-index: 997;
+    box-shadow: 0px 0 18px rgba(0, 0, 0, 0.9);
+}
+.header .logo {
+    line-height: 1;
+}
+.header .logo h1{
+    display: flex;
+    list-style: none;
+    margin: 5px 0 0 20px;
+    padding: 0;
+    font-size: 30px;
+    font-family: var(--header-font);
+    color: var(--logo);
+    font-weight: 400;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* nav */
+@media (min-width: 768px) {
+    .navmenu {
+        padding: 0;
+    }
+    .navmenu ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .navmenu li {
+        white-space: nowrap;
+        margin-right: 30px;
+    }
+    .navmenu li:last-child {
+        margin-right: 30px;
+    }
+    
+    .navmenu a:hover {
+        color: var(--nav-hover);
+    }
+    .navmenu a,
+    .navmenu a:focus {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        white-space: nowrap;
+        padding: 10px, 0px;
+        font-size: 18px;
+        font-family: var(--nav-font);
+        font-weight: 400;
+        color: var(--nav);
+        transition: 0.5s;
+    }
+    .navmenu li:hover > a,
+    .navmenu li:active > a {
+        color: var(--nav-hover);
+    }
+}
+@media (max-width: 767px) {
+    .navmenu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--nav-link-background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease-in-out;
+        transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .navmenu ul {
+        list-style: none;
+        text-align: center;
+        padding: 0 0 50px 0;
+    }
+    .navmenu li {
+        margin: 30px 0;
+    }
+    .navmenu a:hover {
+        color: var(--nav-hover);
+    }
+    .navmenu a,
+    .navmenu a:focus {
+        font-size: 24px;
+        text-decoration: none;
+        font-family: var(--nav-font);
+        color: var(--nav);
+        transition: 0.5s;
+    }
+    .mobile-nav-toggle {
+        position: fixed;
+        top: 15px;
+        right: 25px;
+        font-size: 25px;
+        color: var(--default);
+        cursor: pointer;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
+    }
+    .navmenu.active {
+        right: 0;
+    }
+    .mobile-nav-toggle.animate {
+        transform: rotate(180deg);
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* hero */
+@media (min-width: 576px) {
+    .hero {
+        width: 100%;
+        min-height: calc(100vh - 65px);
+        position: relative;
+        padding: 80px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(70%);
+        z-index: 1;
+    }
+    .hero .container {
+        position: relative;
+        z-index: 3;
+        margin-bottom: 15%;
+    }
+    .hero h2 {
+        margin: 0;
+        font-size: 50px;
+        font-weight: 400;
+        font-family: var(--hero-welcome-font);
+        color: var(--hero-welcome);
+    }
+    .hero p {
+        margin: 10px;
+        font-size: 20px;
+        font-family: var(--hero-content-font);
+        color: var(--hero-content);
+    }
+}
+
+@media (max-width: 575px) {
+    .hero {
+        width: 100%;
+        min-height: calc(100vh - 65px);
+        position: relative;
+        padding: 80px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(40%);
+        z-index: 1;
+    }
+    .hero .container {
+        position: relative;
+        z-index: 3;
+        margin-bottom: 70%;
+    }
+    .hero h2 {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 400;
+        font-family: var(--hero-welcome-font);
+        color: var(--hero-welcome-phone);
+    }
+    .hero p {
+        margin: 14px;
+        font-size: 18px;
+        font-family: var(--hero-content-font);
+        color: var(--hero-content-phone);
+    }
+}
+.hero .fade-up {
+    opacity: 0;
+    animation: fadeUp 1.5s ease-out forwards;
+}
+.hero .fade-up:nth-child(1) {
+    animation-delay: 0.6s;
+}
+.hero .fade-up:nth-child(2) {
+    animation-delay: 1.3s;
+}
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* footer */
+.footer {
+    background-color: var(--footer);
+    font-size: 12px;
+    padding: 30px 0 30px 0;
+    position: relative;
+    box-shadow: 0px 0 20px rgba(0, 0, 0, 0.9);
+}
+.footer h2 {
+    font-family: var(--footer-logo);
+    color: var(--footer-logo-color);
+    margin: 0 0 40px 0;
+    font-size: 24px;
+}
+.footer h3 {
+    font-family: var(--contact-me);
+    color: var(--footer-logo-color);
+    margin: 0 0 10px 0;
+    font-size: 48px;
+}
+.footer .copyright p {
+    padding: 2px;
+    margin: 0;
+    color: var(--footer-copyright);
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* contact */
+.contact {
+    width: 100%;
+    margin: 0 0 30px 0;
+} 
+.contact .form-group {
+    padding-bottom: 20px;
+}
+.contact input[type=text],
+.contact input[type=email],
+.contact textarea {
+    font-size: 16px; 
+    color: var(--default-color);
+    border-radius: 12px;
+    box-shadow: none;
+}
+.contact input[type=text]:focus,
+.contact input[type=email]:focus,
+.contact textarea:focus {
+    border: 2px solid var(--contact-focus-color);
+    outline: none;
+    box-shadow: none;
+}
+.contact input[type=text]::placeholder,
+.contact input[type=email]::placeholder,
+.contact textarea::placeholder {
+    color: color-mix(in srgb, var(--default), transparent 60%);
+}
+.contact input[type=text],
+.contact input[type=email] {
+    height: 48px;
+    padding: 10px 15px;
+}
+.contact textarea {
+    padding: 10px 12px;
+    height: 290px;
+}
+.contact button[type=submit] {
+    background: var(--submit-background-color);
+    color: #000000;
+    border: 1px solid #ffffff;
+    margin: 15px 0 20px 0;
+    padding: 5px 30px;
+    border-radius: 8px;
+    font-family: system-ui;
+    font-weight: 400;
+}
+@media (hover: hover) {
+    .contact button[type=submit]:hover {
+      background: #2d2d2d;
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+}
+.contact button[type=submit]:active {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+.success-icon {
+    color: #28a745;
+    border: 0px;
+    margin: 15px 0 20px 0;
+    padding: 5px 30px;
+    font-family: system-ui;
+    font-weight: 400;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* Classical Music tab */
+@media (min-width: 992px) {
+    .classicalmusic .nav-tabs {
+        border: 0;
+        margin: 0 0 30px 0;
+    }
+    .classicalmusic .nav-link {
+        margin: 0 15px;
+        padding: 30px 1px 3px 1px;
+        background-color: var(--nav-link-background);
+        transition: 0.5s;
+        border-radius: 0;
+        cursor: pointer;
+        height: 100%;
+        border: 0px;
+        border-bottom: 2px solid #9191917b;
+    }
+    .classicalmusic .nav-link h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: var(--composer-font);
+    }
+    .classicalmusic .nav-link:hover {
+        border-color: var(--nav-tab-hover);
+    }
+    .classicalmusic .nav-link.active {
+        background-color: var(--nav-link-background);
+        border-color: var(--nav-tab-hover);
+    }
+    .classicalmusic .tab-content .tab-header {
+        margin: 0;
+        padding: 30px 0;
+    }
+    
+    .classicalmusic .tab-content .tab-header p {
+        margin-bottom: 0;
+        font-size: 40px;
+        font-family: var(--composer-font);
+        color: var(--tab-header);
+    }
+    .classicalmusic .tab-content {
+        margin: 50px 0 30px 0;
+    }
+    .classicalmusic .tab-content .classicalmusic-item {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .classicalmusic .tab-content .classicalmusic-item .classicalmusic-iframe {
+        margin-bottom: 15px;
+        width: 250px;
+        height: 250px;
+        border: 0;
+    }
+    
+    .classicalmusic .tab-content .classicalmusic-item h3 {
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        font-weight: 400;
+        font-family: var(--music-name-font);
+    }
+    
+    .classicalmusic .tab-content .classicalmusic-item .artist {
+        margin: 0;
+        padding: 0;
+        font-family: var(--artist-font);
+        color: color-mix(in srgb, var(--artist), transparent 50%);
+    }
+    .classicalmusic .fade-right {
+        opacity: 0;
+        animation: fadeRight 2s ease-out forwards;
+    }
+    .classicalmusic .fade-up-composers {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    
+    .classicalmusic .fade-up-composers.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 991px) {
+    .classicalmusic .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        scrollbar-width: none;
+        -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+        mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
+        scroll-behavior: smooth;
+    }    
+    .classicalmusic .nav-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    .classicalmusic .nav-item {
+        flex-shrink: 0;
+    }
+    .classicalmusic .nav-tabs {
+        border: 0;
+        margin: 0 0 30px 0;
+    }
+    .classicalmusic li:last-child {
+        padding-right: 35px;
+    }
+    .classicalmusic .nav-link {
+        margin: 0 12px;
+        padding: 30px 1px 3px 1px;
+        background-color: var(--nav-link-background);
+        transition: 0.5s;
+        border-radius: 0;
+        cursor: pointer;
+        height: 100%;
+        border: 0px;
+        border-bottom: 2px solid #9191917b;
+    }
+    .classicalmusic .nav-link h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: var(--composer-font);
+    }
+    .classicalmusic .nav-link:hover {
+        border-color: var(--nav-tab-hover);
+    }
+    .classicalmusic .nav-link.active {
+        background-color: var(--nav-link-background);
+        border-color: var(--nav-tab-hover);
+    }
+    .classicalmusic .tab-content .tab-header {
+        margin: 0;
+        padding: 30px 0;
+    }
+    
+    .classicalmusic .tab-content .tab-header p {
+        margin-bottom: 0;
+        font-size: 40px;
+        font-family: var(--composer-font);
+        color: var(--tab-header);
+    }
+    .classicalmusic .tab-content {
+        margin: 50px 0 30px 0;
+    }
+    .classicalmusic .tab-content .classicalmusic-item {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .classicalmusic .tab-content .classicalmusic-item .classicalmusic-iframe {
+        margin-bottom: 15px;
+        width: 250px;
+        height: 250px;
+    }
+    .classicalmusic .tab-content .classicalmusic-item h3 {
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        font-weight: 400;
+        font-family: var(--music-name-font);
+    }
+    .classicalmusic .tab-content .classicalmusic-item .artist {
+        margin: 0;
+        padding: 0;
+        font-family: var(--artist-font);
+        color: color-mix(in srgb, var(--artist), transparent 50%);
+    }
+    .classicalmusic .fade-right {
+        opacity: 0;
+        animation: fadeRight 2s ease-out forwards;
+    }
+    .classicalmusic .fade-up-composers {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    
+    .classicalmusic .fade-up-composers.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* blog */
+@media (min-width: 768px) {
+    .blog {
+        padding: 60px 0;
+        min-height: 100vh;
+    }
+    .article {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .article li {
+        margin-bottom: 40px;
+    }
+    .article p {
+        margin: 0 0 5px 0;
+        padding: 0;
+        font-size: 12px;
+        font-weight: 100;
+    }
+    .article a {
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        font-weight: 250;
+        color: var(--article-title);
+        transition: 0.5s;
+    }
+    .article a:hover {
+        text-decoration: none;
+        color: var(--article-title-hover);
+    }
+}
+@media (max-width: 767px) {
+    .blog {
+        padding: 30px;
+        margin: 0;
+        min-height: 100vh;
+    }
+    .article {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .article li {
+        margin-bottom: 30px;
+    }
+    .article p {
+        margin: 0 0 5px 0;
+        padding: 0;
+        font-size: 12px;
+        font-weight: 100;
+    }
+    .article a {
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        font-weight: 250;
+        color: var(--article-title);
+        transition: 0.5s;
+    }
+    .article a:hover {
+        text-decoration: none;
+        color: var(--article-title-hover);
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* blog content*/
+@media (min-width: 576px) {
+    .blog-contents{
+        margin: 0;
+        padding: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .blog-contents h1 {
+        text-align: start;
+        margin: 30px 0 60px 0;
+        padding: 0;
+        font-size: 65px;
+        font-family: var(--blog-title-font);
+        font-weight: 400;
+        line-height: 75px;
+    }
+    .blog-contents h2 {
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-size: 14px;
+        font-family: var(--blog-date-font);
+        font-weight: 100;
+    }
+    .blog-contents h3 {
+        text-align: start;
+        margin: 0 0 50px 0;
+        padding: 0;
+        font-size: 14px;
+        font-family: italic;
+        color: var(--reminder);
+        font-weight: 100;
+    }
+    .blog-contents h4 {
+        text-align: start;
+        margin: 20px 0 15px 0;
+        padding: 0;
+        font-size: 30px;
+        font-family: var(--blog-content-font);
+        font-weight: 300;
+    }
+    .blog-contents img {
+        width: 100%;
+        height: auto;
+        margin: 0 0 40px 0;
+    }
+    .blog-contents p {
+        text-align: start;
+        margin: 0 0 40px 0;
+        padding: 0;
+        font-size: 18px;
+        font-family: var(--blog-content-font);
+        font-weight: 300;
+    }
+    .blog-contents iframe {
+        width: 100% !important;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        display: block;
+        border: 0;
+        margin: 0 0 10px 0;
+    }
+}
+@media (max-width: 575px) {
+    .blog-contents{
+        margin: 0;
+        padding: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .blog-contents h1 {
+        text-align: start;
+        margin: 30px 15px 60px 15px;
+        padding: 0;
+        font-size: 40px;
+        font-family: var(--blog-title-font);
+        font-weight: 300;
+        line-height: 55px;
+    }
+    .blog-contents h2 {
+        margin: 0 15px 20px 0;
+        padding: 0;
+        font-size: 14px;
+        font-family: var(--blog-date-font);
+        font-weight: 100;
+    }
+    .blog-contents h3 {
+        text-align: start;
+        margin: 0 15px 50px 15px;
+        padding: 0;
+        font-size: 14px;
+        font-family: italic;
+        color: var(--reminder);
+        font-weight: 100;
+    }
+    .blog-contents h4 {
+        text-align: start;
+        margin: 0 15px 20px 15px;
+        padding: 0;
+        font-size: 30px;
+        font-family: var(--blog-content-font);
+        font-weight: 300;
+    }
+    .blog-contents img {
+        width: 100%;
+        height: auto;
+        margin: 0 0 40px 0;
+    }
+    .blog-contents p {
+        text-align: start;
+        margin: 0 15px 40px 15px;
+        padding: 0;
+        font-size: 16px;
+        font-family: var(--blog-content-font);
+        font-weight: 300;
+    }
+    .blog-contents iframe {
+        width: 100% !important;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        display: block;
+        border: 0;
+        margin: 0 0 20px 0;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* about */
+@media (min-width: 576px) {
+    .about {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 120px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .about img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(50%);
+        z-index: 1;
+    }
+    .about .container {
+        position: relative;
+        z-index: 3;
+        margin-bottom: 15%;
+    }
+    .about h2 {
+        margin: 0;
+        font-size: 50px;
+        font-weight: 400;
+        font-family: var(--hero-welcome-font);
+        color: var(--hero-welcome);
+    }
+    .about p {
+        margin: 10px;
+        font-size: 22px;
+        font-family: var(--hero-content-font);
+        color: var(--hero-content);
+    }
+}
+@media (max-width: 575px) {
+    .about {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 30px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .about img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(40%);
+        z-index: 1;
+    }
+    .about .container {
+        position: relative;
+        z-index: 3;
+        margin-bottom: 65%;
+    }
+    .about h2 {
+        margin: 40px 0 0 0;
+        font-size: 36px;
+        font-weight: 400;
+        font-family: var(--hero-welcome-font);
+        color: var(--hero-welcome-phone);
+    }
+    .about p {
+        margin: 14px;
+        font-size: 18px;
+        font-family: var(--hero-content-font);
+        color: var(--hero-content-phone);
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* about-contents */
+@media (min-width: 576px) {
+    .about-contents {
+        width: 100%;
+        margin: 0;
+    }
+    .about-contents h1 {
+        font-size: 44px;
+        line-height: 63px;
+        font-family: var(--about-content-font);
+        margin: 62px 0 32px 0;
+        font-weight: 400;
+    }
+    .about-contents p {
+        font-size: 22px;
+        line-height: 35px;
+        font-family: var(--about-content-font);
+        margin-bottom: 35px;
+    }
+}
+@media (max-width: 575px) {
+    .about-contents {
+        width: 100%;
+        margin: 0;
+    }
+    .about-contents h1 {
+        font-size: 32px;
+        font-family: var(--about-content-font);
+        margin: 52px 0 32px 0;
+        font-weight: 100;
+    }
+    .about-contents p {
+        font-size: 18px;
+        font-family: var(--about-content-font);
+        margin-bottom: 45px;
+    }
+}
