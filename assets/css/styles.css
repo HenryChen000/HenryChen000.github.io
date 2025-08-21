@@ -354,7 +354,7 @@ h6 {
     margin: 0 0 30px 0;
 } 
 .contact .form-group {
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 .contact input[type=text],
 .contact input[type=email],
@@ -389,7 +389,7 @@ h6 {
     background: var(--submit-background-color);
     color: #000000;
     border: 1px solid #ffffff;
-    margin: 15px 0 20px 0;
+    margin: 10px 0 20px 0;
     padding: 5px 30px;
     border-radius: 8px;
     font-family: system-ui;
@@ -410,7 +410,7 @@ h6 {
 .success-icon {
     color: #28a745;
     border: 0px;
-    margin: 15px 0 20px 0;
+    margin: 10px 0 20px 0;
     padding: 5px 30px;
     font-family: system-ui;
     font-weight: 400;
