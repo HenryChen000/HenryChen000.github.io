@@ -67,6 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
     headers.forEach(header => {
         const row = header.nextElementSibling;
         if (row && row.classList.contains("row")) {
+            // 先把 iframe 的 src 存起來，避免一開始就載入
+            const items = row.querySelectorAll("iframe");
+            items.forEach(iframe => {
+                iframe.dataset.src = iframe.src; // 存起來
+                iframe.src = ""; // 清掉，先不載入
+            });
             blocks.push({ header, row });
         }
     });
@@ -82,11 +88,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function loadMore() {
         for (let i = 0; i < blocksPerLoad && currentIndex < blocks.length; i++) {
-            blocks[currentIndex].header.style.display = "block";
-            blocks[currentIndex].row.style.display = "flex"; // row 用 flex 顯示
+            const block = blocks[currentIndex];
+            block.header.style.display = "block";
+            block.row.style.display = "flex";
+
+            // 把裡面的 iframe src 填回去，這時才載入 YouTube
+            const iframes = block.row.querySelectorAll("iframe");
+            iframes.forEach(iframe => {
+                if (!iframe.src && iframe.dataset.src) {
+                    iframe.src = iframe.dataset.src;
+                }
+            });
+
             currentIndex++;
         }
-        // 如果所有 block 都已經顯示 -> 移除按鈕
         if (currentIndex >= blocks.length) {
             loadMoreBtn.remove();
         }
@@ -94,16 +109,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 建立 Load More 按鈕
     const loadMoreBtn = document.createElement("button");
-    loadMoreBtn.textContent = "Load More";
+    loadMoreBtn.textContent = "load more";
     loadMoreBtn.className = "btn btn-outline-secondary mt-3 d-block mx-auto";
     loadMoreBtn.addEventListener("click", loadMore);
 
-    // 把按鈕加在 Other-Composers 的最後
     otherTab.appendChild(loadMoreBtn);
 
-    // 一開始先載入一批
+    // 一開始載入一批
     loadMore();
 });
+
 
 
 
