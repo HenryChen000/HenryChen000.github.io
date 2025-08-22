@@ -55,7 +55,55 @@ function onFormSubmitSuccess() {
       }, 1000);
     }
 }
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+    const otherTab = document.querySelector("#Other-Composers");
+    if (!otherTab) return;
 
+    // 收集所有 composer 區塊 (tab-header + row)
+    const blocks = [];
+    const headers = otherTab.querySelectorAll(".tab-header");
+
+    headers.forEach(header => {
+        const row = header.nextElementSibling;
+        if (row && row.classList.contains("row")) {
+            blocks.push({ header, row });
+        }
+    });
+
+    const blocksPerLoad = 2; // 每次顯示幾個 composer
+    let currentIndex = 0;
+
+    // 先隱藏所有
+    blocks.forEach(b => {
+        b.header.style.display = "none";
+        b.row.style.display = "none";
+    });
+
+    function loadMore() {
+        for (let i = 0; i < blocksPerLoad && currentIndex < blocks.length; i++) {
+            blocks[currentIndex].header.style.display = "block";
+            blocks[currentIndex].row.style.display = "flex"; // row 用 flex 顯示
+            currentIndex++;
+        }
+        // 如果所有 block 都已經顯示 -> 移除按鈕
+        if (currentIndex >= blocks.length) {
+            loadMoreBtn.remove();
+        }
+    }
+
+    // 建立 Load More 按鈕
+    const loadMoreBtn = document.createElement("button");
+    loadMoreBtn.textContent = "Load More";
+    loadMoreBtn.className = "btn btn-outline-secondary mt-3 d-block mx-auto";
+    loadMoreBtn.addEventListener("click", loadMore);
+
+    // 把按鈕加在 Other-Composers 的最後
+    otherTab.appendChild(loadMoreBtn);
+
+    // 一開始先載入一批
+    loadMore();
+});
 
 
 
