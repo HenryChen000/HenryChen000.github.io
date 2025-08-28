@@ -24,7 +24,7 @@
     --nav-mobile-background-color: #ffffff;
     --default: #000000;
     --article-title: #000000;
-    --artist: #000000;
+    --artist: #555555ad;
     --tab-header: #000000;
     --nav: #000000;
     --logo: #000000;
@@ -37,6 +37,7 @@
     --hero-content: #dfdfdf;
     --hero-welcome-phone: #fcfcfc;
     --hero-content-phone: #fcfcfc;
+    --placeholder: #00000045;
     /* --footer: #dfdfdf; */
     --footer: #2d2d2d;
     --reminder: #917400;
@@ -181,7 +182,6 @@ h6 {
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: right 0.3s ease-in-out;
         transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .navmenu ul {
@@ -374,7 +374,7 @@ h6 {
 .contact input[type=text]::placeholder,
 .contact input[type=email]::placeholder,
 .contact textarea::placeholder {
-    color: color-mix(in srgb, var(--default), transparent 60%);
+    color: var(--placeholder);
 }
 .contact input[type=text],
 .contact input[type=email] {
@@ -484,7 +484,7 @@ h6 {
         margin: 0;
         padding: 0;
         font-family: var(--artist-font);
-        color: color-mix(in srgb, var(--artist), transparent 50%);
+        color: var(--artist);
     }
     .classicalmusic .fade-right {
         opacity: 0;
@@ -586,7 +586,7 @@ h6 {
         margin: 0 0 15px 0;
         padding: 0;
         font-family: var(--artist-font);
-        color: color-mix(in srgb, var(--artist), transparent 50%);
+        color: var(--artist);
     }
     .classicalmusic .fade-right {
         opacity: 0;
