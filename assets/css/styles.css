@@ -460,7 +460,13 @@ h6 {
         color: var(--tab-header);
     }
     .classicalmusic .tab-content {
-        margin: 50px 0 30px 0;
+        margin: 0 0 30px 0;
+    }
+    .classicalmusic .tab-content .tab-pane {
+        margin: 50px 0;
+    }
+    .classicalmusic .tab-content .tab-pane:nth-of-type(7) {
+        margin: 0 0;
     }
     .classicalmusic .tab-content .classicalmusic-item {
         text-align: center;
@@ -577,7 +583,13 @@ h6 {
         color: var(--tab-header);
     }
     .classicalmusic .tab-content {
-        margin: 50px 0 30px 0;
+        margin: 0 0 30px 0;
+    }
+    .classicalmusic .tab-content .tab-pane {
+        margin: 50px 0;
+    }
+    .classicalmusic .tab-content .tab-pane:nth-of-type(7) {
+        margin: 0 0; /* 或你要設定的 margin */
     }
     .classicalmusic .tab-content .classicalmusic-item {
         text-align: center;
