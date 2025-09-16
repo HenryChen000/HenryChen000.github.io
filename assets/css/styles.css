@@ -46,6 +46,7 @@
     --contact-focus-color: #a48400;
     --submit-background-color: #ffffff;
     --submit-hover-color: #c4c4c4;
+    --load-more-btn: #2d2d2d;
 }
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* font style */
@@ -500,6 +501,18 @@ h6 {
         opacity: 1;
         transform: translateY(0);
     }
+    .classicalmusic .btn-outline-secondary:hover,
+    .classicalmusic .btn-outline-secondary:active,
+    .classicalmusic .btn-outline-secondary:focus {
+        background-color: var(--load-more-btn);
+        color: #ffffff;
+        border-color: var(--load-more-btn);
+    }
+    .classicalmusic .btn-outline-secondary { 
+        background-color: #ffffff;
+        color: var(--load-more-btn);
+        border-color: var(--load-more-btn);
+    }
 }
 
 @media (max-width: 991px) {
@@ -602,6 +615,17 @@ h6 {
         opacity: 1;
         transform: translateY(0);
     }
+    .classicalmusic .btn-outline-secondary:active, 
+    .classicalmusic .btn-outline-secondary:focus {
+        background-color: #ffffff;
+        color: var(--load-more-btn);
+        border-color: var(--load-more-btn);
+    }
+    .classicalmusic .btn-outline-secondary { 
+        background-color: #ffffff;
+        color: var(--load-more-btn);
+        border-color: var(--load-more-btn);
+    }
 }
 @keyframes fadeRight {
     0% {
@@ -613,6 +637,7 @@ h6 {
         transform: translateX(0);
     }
 }
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 /* blog */
 @media (min-width: 768px) {
