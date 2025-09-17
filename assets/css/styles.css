@@ -395,6 +395,7 @@ h6 {
     border-radius: 8px;
     font-family: system-ui;
     font-weight: 400;
+    transition: 0.3s;
 }
 @media (hover: hover) {
     .contact button[type=submit]:hover {
@@ -402,12 +403,13 @@ h6 {
       color: #ffffff;
       border-color: #ffffff;
     }
+    .contact button[type=submit]:active {
+        background: #1a1a1a;
+        color: #ffffff;
+        border-color: #ffffff;
+    }
 }
-.contact button[type=submit]:active {
-    background: #1a1a1a;
-    color: #ffffff;
-    border-color: #ffffff;
-}
+
 .success-icon {
     color: #28a745;
     border: 0px;
