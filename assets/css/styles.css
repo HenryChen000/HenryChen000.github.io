@@ -515,11 +515,15 @@ h6 {
         background-color: var(--load-more-btn) !important;
         color: #ffffff !important;
         border-color: var(--load-more-btn) !important;
+        outline: none !important;;
+        box-shadow: none !important;;
     }
     .classicalmusic .btn-outline-secondary { 
         background-color: #ffffff !important;
         color: var(--load-more-btn) !important;
         border-color: var(--load-more-btn) !important;
+        outline: none !important;;
+        box-shadow: none !important;;
     }
 }
 

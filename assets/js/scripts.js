@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const items = row.querySelectorAll("iframe");
             items.forEach(iframe => {
                 iframe.dataset.src = iframe.src; // 存起來
-                iframe.src = ""; // 清掉，先不載入
+                iframe.removeAttribute("src");  
             });
             blocks.push({ header, row });
         }
@@ -93,10 +93,20 @@ document.addEventListener("DOMContentLoaded", function () {
             block.row.style.display = "flex";
 
             // 把裡面的 iframe src 填回去，這時才載入 YouTube
-            const iframes = block.row.querySelectorAll("iframe");
-            iframes.forEach(iframe => {
-                if (!iframe.src && iframe.dataset.src) {
-                    iframe.src = iframe.dataset.src;
+            const placeholders = block.row.querySelectorAll("iframe");
+            placeholders.forEach(oldIframe => {
+                if (oldIframe.dataset.src) {
+                    const newIframe = document.createElement("iframe");
+                    newIframe.className = oldIframe.className;
+                    newIframe.loading = "lazy";
+                    newIframe.src = oldIframe.dataset.src;
+                    newIframe.title = oldIframe.title;
+                    newIframe.allow = oldIframe.allow;
+                    newIframe.allowFullscreen = oldIframe.allowFullscreen;
+                    newIframe.referrerPolicy = oldIframe.referrerPolicy;
+                    newIframe.style.border = "0";
+
+                    oldIframe.replaceWith(newIframe);
                 }
             });
 
@@ -111,7 +121,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const loadMoreBtn = document.createElement("button");
     loadMoreBtn.textContent = "load more";
     loadMoreBtn.className = "btn btn-outline-secondary mt-3 d-block mx-auto";
-    loadMoreBtn.addEventListener("click", loadMore);
+    loadMoreBtn.addEventListener("click", function () {
+        loadMore();
+        this.blur();
+    });
 
     otherTab.appendChild(loadMoreBtn);
 
