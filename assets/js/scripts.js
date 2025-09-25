@@ -1,22 +1,61 @@
 // Intersection Observer
-const observer = new IntersectionObserver((entries, observer) => {
-    let delay = 0;
-    const delayIncrement = 0.2;
+// const observer = new IntersectionObserver((entries, observer) => {
+//     let delay = 0;
+//     const delayIncrement = 0.2;
 
+//     entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//             const element = entry.target;
+
+//             element.style.transitionDelay = `${delay}s`;
+//             delay += delayIncrement;
+
+//             element.classList.add('visible');
+
+//             observer.unobserve(element);
+//         }
+//     });
+// }, { threshold: 0.1 });
+// document.querySelectorAll('.fade-up-composers').forEach(el => observer.observe(el));
+
+const elements = Array.from(document.querySelectorAll('.fade-up-composers'));
+
+let showQueue = [];     
+let showing = false;    
+const delayIncrement = 200; 
+
+function processQueue() {
+    if (showing || showQueue.length === 0) return;
+
+    showing = true;
+
+    const el = showQueue.shift();
+    el.classList.add('visible');
+
+    setTimeout(() => {
+        showing = false;
+        processQueue();
+    }, delayIncrement);
+}
+
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const element = entry.target;
+            const el = entry.target;
 
-            element.style.transitionDelay = `${delay}s`;
-            delay += delayIncrement;
-
-            element.classList.add('visible');
-
-            observer.unobserve(element);
+            if (!showQueue.includes(el)) {
+                showQueue.push(el);
+                processQueue();
+                observer.unobserve(el);
+            }
         }
     });
 }, { threshold: 0.1 });
-document.querySelectorAll('.fade-up-composers').forEach(el => observer.observe(el));
+
+elements.forEach(el => {
+    observer.observe(el);
+});
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 const toggle = document.querySelector('.mobile-nav-toggle');
 const nav = document.getElementById('navmenu');
