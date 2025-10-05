@@ -729,7 +729,7 @@ h6 {
 /* blog content*/
 @media (min-width: 576px) {
     .blog-contents{
-        margin: 0;
+        margin: 0 0 40px 0;
         padding: 0;
         flex: 1;
         display: flex;
@@ -754,7 +754,7 @@ h6 {
     }
     .blog-contents h3 {
         text-align: start;
-        margin: 0 0 50px 0;
+        margin: 0 0 30px 0;
         padding: 0;
         font-size: 14px;
         font-style: italic;
@@ -763,7 +763,7 @@ h6 {
     }
     .blog-contents h4 {
         text-align: start;
-        margin: 20px 0 15px 0;
+        margin: 20px 0 20px 0;
         padding: 0;
         font-size: 30px;
         font-family: var(--blog-content-font);
@@ -772,11 +772,11 @@ h6 {
     .blog-contents img {
         width: 100%;
         height: auto;
-        margin: 0 0 40px 0;
+        margin: 0 0 30px 0;
     }
     .blog-contents p {
         text-align: start;
-        margin: 0 0 40px 0;
+        margin: 0 0 30px 0;
         padding: 0;
         font-size: 18px;
         font-family: var(--blog-content-font);
@@ -788,12 +788,12 @@ h6 {
         height: auto;
         display: block;
         border: 0;
-        margin: 0 0 10px 0;
+        margin: 0 0 30px 0;
     }
 }
 @media (max-width: 575px) {
     .blog-contents{
-        margin: 0;
+        margin: 0 0 30px 0;
         padding: 0;
         flex: 1;
         display: flex;
@@ -818,7 +818,7 @@ h6 {
     }
     .blog-contents h3 {
         text-align: start;
-        margin: 0 15px 50px 15px;
+        margin: 0 15px 30px 15px;
         padding: 0;
         font-size: 14px;
         font-style: italic;
@@ -827,7 +827,7 @@ h6 {
     }
     .blog-contents h4 {
         text-align: start;
-        margin: 0 15px 20px 15px;
+        margin: 20px 15px 20px 15px;
         padding: 0;
         font-size: 30px;
         font-family: var(--blog-content-font);
@@ -836,11 +836,11 @@ h6 {
     .blog-contents img {
         width: 100%;
         height: auto;
-        margin: 0 0 40px 0;
+        margin: 0 0 30px 0;
     }
     .blog-contents p {
         text-align: start;
-        margin: 0 15px 40px 15px;
+        margin: 0 15px 30px 15px;
         padding: 0;
         font-size: 16px;
         font-family: var(--blog-content-font);
@@ -852,7 +852,7 @@ h6 {
         height: auto;
         display: block;
         border: 0;
-        margin: 0 0 20px 0;
+        margin: 0 0 30px 0;
     }
 }
 
