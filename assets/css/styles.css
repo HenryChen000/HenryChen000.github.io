@@ -193,9 +193,6 @@ h6 {
     .navmenu li {
         margin: 30px 0;
     }
-    .navmenu a:hover {
-        color: var(--nav-hover);
-    }
     .navmenu a,
     .navmenu a:focus {
         font-size: 24px;
@@ -726,7 +723,6 @@ h6 {
     }
     .article a:hover {
         text-decoration: none;
-        color: var(--article-title-hover);
     }
 }
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
