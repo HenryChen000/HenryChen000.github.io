@@ -99,27 +99,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const otherTab = document.querySelector("#Other-Composers");
     if (!otherTab) return;
 
-    // 收集所有 composer 區塊 (tab-header + row)
     const blocks = [];
     const headers = otherTab.querySelectorAll(".tab-header");
 
     headers.forEach(header => {
         const row = header.nextElementSibling;
         if (row && row.classList.contains("row")) {
-            // 先把 iframe 的 src 存起來，避免一開始就載入
-            const items = row.querySelectorAll("iframe");
-            items.forEach(iframe => {
-                iframe.dataset.src = iframe.src; // 存起來
-                iframe.removeAttribute("src");  
-            });
             blocks.push({ header, row });
         }
     });
 
-    const blocksPerLoad = 2; // 每次顯示幾個 composer
+    const blocksPerLoad = 2;
     let currentIndex = 0;
 
-    // 先隱藏所有
     blocks.forEach(b => {
         b.header.style.display = "none";
         b.row.style.display = "none";
@@ -130,33 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const block = blocks[currentIndex];
             block.header.style.display = "block";
             block.row.style.display = "flex";
-
-            // 把裡面的 iframe src 填回去，這時才載入 YouTube
-            const placeholders = block.row.querySelectorAll("iframe");
-            placeholders.forEach(oldIframe => {
-                if (oldIframe.dataset.src) {
-                    const newIframe = document.createElement("iframe");
-                    newIframe.className = oldIframe.className;
-                    newIframe.loading = "lazy";
-                    newIframe.src = oldIframe.dataset.src;
-                    newIframe.title = oldIframe.title;
-                    newIframe.allow = oldIframe.allow;
-                    newIframe.allowFullscreen = oldIframe.allowFullscreen;
-                    newIframe.referrerPolicy = oldIframe.referrerPolicy;
-                    newIframe.style.border = "0";
-
-                    oldIframe.replaceWith(newIframe);
-                }
-            });
-
             currentIndex++;
         }
+
         if (currentIndex >= blocks.length) {
             loadMoreBtn.remove();
         }
     }
 
-    // 建立 Load More 按鈕
     const loadMoreBtn = document.createElement("button");
     loadMoreBtn.textContent = "load more";
     loadMoreBtn.className = "btn btn-outline-secondary mt-3 d-block mx-auto";
@@ -166,9 +139,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     otherTab.appendChild(loadMoreBtn);
-
-    // 一開始載入一批
     loadMore();
+});
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+document.addEventListener("click", function(e) {
+  const box = e.target.closest(".yt-player");
+  if (!box) return;
+
+  document.querySelectorAll(".yt-player iframe").forEach(i => {
+    const parent = i.parentElement;
+    parent.innerHTML = parent.dataset.thumb;
+  });
+
+  const id = box.dataset.id;
+  const list = box.dataset.list;
+
+  box.dataset.thumb = box.innerHTML;
+
+  let src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+  if (list) {
+    src += `&list=${list}`;
+  }
+
+  box.innerHTML = `
+    <iframe class="classicalmusic-iframe"
+      src="${src}"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  `;
 });
 
 
