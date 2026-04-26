@@ -33,8 +33,10 @@
     --nav-tab-hover: #917400;
     --article-title-hover: #917400;
     --header: #dfdfdf;
-    --hero-welcome: #dfdfdf;
-    --hero-content: #dfdfdf;
+    /* --hero-welcome: #dfdfdf;
+    --hero-content: #dfdfdf; */
+    --hero-welcome: #fcfcfc;
+    --hero-content: #fcfcfc;
     --hero-welcome-phone: #fcfcfc;
     --hero-content-phone: #fcfcfc;
     --placeholder: #00000045;
