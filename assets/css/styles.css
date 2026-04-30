@@ -488,10 +488,10 @@ h6 {
         width: 250px;
         height: 250px;
         border: 0;
-        clip-path: inset(2px 4px);
+        border-radius: 0.01px;
     }
     .classicalmusic .background-image {
-        clip-path: inset(2px 4px);
+        border-radius: 0.01px;
     }
     .ytp-large-play-button {
         position: absolute;
